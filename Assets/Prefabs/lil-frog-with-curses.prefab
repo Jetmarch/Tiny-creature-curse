@@ -1620,6 +1620,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8632959451984036462}
+  - component: {fileID: 2188479942783453992}
   m_Layer: 0
   m_Name: lil-frog-with-curses
   m_TagString: Untagged
@@ -1652,6 +1653,50 @@ Transform:
   - {fileID: 1203240953449959768}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2188479942783453992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8972787071826286804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4d71a643adc86a4caa523020d769a92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _activeCurses: 
+  _curseAttribute:
+    reorderableList:
+      canAdd: 1
+      canRemove: 1
+      draggable: 1
+      expandable: 1
+      multipleSelection: 1
+      isExpanded: 1
+      label:
+        m_Text: Keys
+        m_Image: {fileID: 0}
+        m_Tooltip: 
+      headerHeight: 18
+      footerHeight: 13
+      slideEasing: 0.15
+      verticalSpacing: 2
+      showDefaultBackground: 1
+      elementDisplayType: 0
+      elementNameProperty: 
+      elementNameOverride: 
+      elementIcon: {fileID: 0}
+    reqReferences: {fileID: 0}
+    isExpanded: 1
+    _keyValues: 0102030405
+    _keys: 0102030405
+    _values:
+    - {fileID: 8180618829898622921}
+    - {fileID: 713560181365771684}
+    - {fileID: 1301800476515610457}
+    - {fileID: 8398628897285454069}
+    - {fileID: 697703198564352944}
 --- !u!1 &9108505473080281683
 GameObject:
   m_ObjectHideFlags: 0

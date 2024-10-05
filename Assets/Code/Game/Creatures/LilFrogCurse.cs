@@ -1,11 +1,9 @@
 using System;
 
-namespace ClearCursesProto
+namespace ClearCursesProto.Game
 {
-    [Flags]
-    public enum LilFrogCurses : byte
+    public enum LilFrogCurse : byte
     {
-        None,
         Fangs,
         Wings,
         Tail,
