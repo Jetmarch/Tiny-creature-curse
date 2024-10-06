@@ -29,6 +29,11 @@ namespace ClearCursesProto.Game
             {
                 var newCurse = (LilFrogCurse)possibleCurses.GetValue(UnityEngine.Random.Range(0, possibleCurses.Length));
 
+                while(curses.Contains(newCurse))
+                {
+                    newCurse = (LilFrogCurse)possibleCurses.GetValue(UnityEngine.Random.Range(0, possibleCurses.Length));
+                }
+
                 curses.Add(newCurse);
             }
 
