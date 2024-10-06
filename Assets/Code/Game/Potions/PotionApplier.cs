@@ -5,7 +5,7 @@ namespace ClearCursesProto.Game
 {
     public class PotionApplier : MonoBehaviour
     {
-        public event Action OnPotionApplied;
+        public event Action<Potion> OnPotionApplied;
 
         [SerializeField]
         private Creature _currentCreature;
@@ -21,7 +21,7 @@ namespace ClearCursesProto.Game
             _currentCreature.RemoveCurse(potion.RemoveCurse);
             _currentCreature.UpdateCurses();
 
-            OnPotionApplied?.Invoke();
+            OnPotionApplied?.Invoke(potion);
         }
     }
 }

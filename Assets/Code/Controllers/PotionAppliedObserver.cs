@@ -11,14 +11,23 @@ namespace ClearCursesProto.Controllers
         [SerializeField]
         private CurseOrderTracker _curseOrderTracker;
 
+        [SerializeField]
+        private PotionFX _potionFX;
+
         private void OnEnable()
         {
-            _potionApplier.OnPotionApplied += _curseOrderTracker.OnPotionApplied;
+            _potionApplier.OnPotionApplied += ApplyPotion;
         }
 
         private void OnDisable()
         {
-            _potionApplier.OnPotionApplied -= _curseOrderTracker.OnPotionApplied;
+            _potionApplier.OnPotionApplied -= ApplyPotion;
+        }
+
+        private void ApplyPotion(Potion potion)
+        {
+            _curseOrderTracker.OnPotionApplied();
+            _potionFX.OnPotionApllied(potion);
         }
     }
 }

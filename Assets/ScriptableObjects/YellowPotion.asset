@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 744366bcdb33d1a48b2c5e9dad7e3635, type: 3}
   m_Name: YellowPotion
   m_EditorClassIdentifier: 
+  _type: 3
   _addCurse: 3
   _removeCurse: 4
