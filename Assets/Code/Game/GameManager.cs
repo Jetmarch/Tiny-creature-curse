@@ -13,5 +13,10 @@ namespace ClearCursesProto.Game
         {
             OnStartGame?.Invoke();
         }
+
+        private void Start()
+        {
+            StartGame();
+        }
     }
 }

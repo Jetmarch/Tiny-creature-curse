@@ -8,7 +8,7 @@ namespace ClearCursesProto.Controllers
     public class PotionButtonClickedObserver : MonoBehaviour
     {
         [SerializeField]
-        private PotionButtonsManager _potionButtonsManager;
+        private PotionsPanelView _potionButtonsManager;
 
         [SerializeField]
         private PotionApplier _curseCaster;

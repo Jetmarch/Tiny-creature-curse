@@ -7,15 +7,19 @@ namespace ClearCursesProto.Game
     {
         public event Action OnOrderCompleted;
         public event Action OnCompleteGame;
+        public event Action<CurseOrder> OnOrderCreated;
 
         [SerializeField]
         private int _ordersToCompleteGame = 3;
 
         [SerializeField]
-        private CurseOrderCreator _creator;
+        private CurseOrderCreator _orderCreator;
 
         [SerializeField]
-        private CurseOrderChecker _checker;
+        private CurseOrderChecker _orderChecker;
+
+        [SerializeField]
+        private Curser _curser;
 
         [SerializeField]
         private CurseOrder _currentCurseOrder;
@@ -25,51 +29,47 @@ namespace ClearCursesProto.Game
 
         private int _currentCompletedOrders;
 
-        public void OnStartGame()
+        public void StartOrders()
         {
             _currentCompletedOrders = 0;
 
-            AffectCreatureWithRandomCurses();
+            _curser.AffectCreatureWithRandomCurses(_creature);
 
-            _currentCurseOrder = _creator.CreateOrder();
+            CreateOrder();
         }
 
         public void OnPotionApplied()
         {
-            if (!_checker.IsCurseOrderCompleted(_creature, _currentCurseOrder))
+            if (!_orderChecker.IsCurseOrderCompleted(_creature, _currentCurseOrder))
             {
                 return;
             }
 
             OnOrderCompleted?.Invoke();
-            Debug.Log("Order completed!");
 
             _currentCompletedOrders++;
 
             if (_currentCompletedOrders >= _ordersToCompleteGame)
             {
                 OnCompleteGame?.Invoke();
-                Debug.Log("Game completed!");
                 _currentCompletedOrders = 0;
+                return;
             }
 
-            _currentCurseOrder = _creator.CreateOrder();
+            CreateOrder();
         }
 
         [ContextMenu("Create order")]
         public void CreateOrder()
         {
-            _currentCurseOrder = _creator.CreateOrder();
+            _currentCurseOrder = _orderCreator.CreateOrder(_creature);
+            OnOrderCreated?.Invoke(_currentCurseOrder);
         }
 
-        private void AffectCreatureWithRandomCurses()
+        [ContextMenu("Complete game")]
+        private void CompleteGame()
         {
-            var randomCurses = _creator.GetRandomCurses();
-            foreach (var curses in randomCurses)
-            {
-                _creature.AddCurse(curses);
-            }
-            _creature.UpdateCurses();
+            OnCompleteGame?.Invoke();
         }
     }
 }

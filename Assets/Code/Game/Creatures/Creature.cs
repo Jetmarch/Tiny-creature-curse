@@ -6,6 +6,13 @@ namespace ClearCursesProto.Game
 {
     public class Creature : MonoBehaviour
     {
+        public int MinCountOfCurses { get { return _minCountOfCurses; } }
+        public int MaxCountOfCurses { get { return _maxCountOfCurses; } }
+
+        [SerializeField]
+        private int _minCountOfCurses = 1;
+        [SerializeField]
+        private int _maxCountOfCurses = 3;
         public List<LilFrogCurse> ActiveCurses { get { return _activeCurses; } }
 
         [SerializeField]
