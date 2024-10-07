@@ -17,13 +17,10 @@ namespace ClearCursesProto.Controllers
         private Creature _creature;
 
         [SerializeField]
-        private PotionsPanelView _potionPanelView;
+        private GameUIView _gameUIView;
 
         [SerializeField]
-        private CurseOrderView _curseOrderView;
-
-        [SerializeField]
-        private Button _finishGameBtn;
+        private FinishGameUIView _finishGameView;
 
         private void OnEnable()
         {
@@ -38,11 +35,9 @@ namespace ClearCursesProto.Controllers
         private void OnCompleteGame()
         {
             _curser.CleanCreature(_creature);
-            _potionPanelView.Hide();
-            _curseOrderView.Hide();
+            _gameUIView.Hide();
 
-            //TODO: Show final comics with clean creature
-            _finishGameBtn.gameObject.SetActive(true);
+            _finishGameView.Show();
         }
     }
 }

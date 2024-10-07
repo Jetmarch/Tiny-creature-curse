@@ -1,4 +1,5 @@
 using ClearCursesProto.Game;
+using DG.Tweening;
 using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -18,9 +19,18 @@ namespace ClearCursesProto.UI
         [SerializeField]
         private Button _button;
 
+        [Header("Animations")]
+        [SerializeField]
+        private float _scaleFactorOnPointerEnter = 1.2f;
+        [SerializeField]
+        private float _scaleSpeed = 0.2f;
+
+        private Vector3 _startScale;
+
         private void Start()
         {
             _button.onClick.AddListener(OnPotionButtonClick);
+            _startScale = transform.lossyScale;
         }
 
         private void OnPotionButtonClick()
@@ -31,11 +41,15 @@ namespace ClearCursesProto.UI
         public void OnPointerEnter(PointerEventData eventData)
         {
             OnPointerEnterPotion?.Invoke(_potion);
+
+            transform.DOScale(_startScale * _scaleFactorOnPointerEnter, _scaleSpeed);
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
             OnPointerExitPotion?.Invoke();
+
+            transform.DOScale(_startScale, _scaleSpeed);
         }
 
 #if UNITY_EDITOR

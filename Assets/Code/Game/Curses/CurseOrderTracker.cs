@@ -9,6 +9,11 @@ namespace ClearCursesProto.Game
         public event Action OnCompleteGame;
         public event Action<CurseOrder> OnOrderCreated;
 
+        public int OrdersToCompleteGame { get { return _ordersToCompleteGame; } }
+        public int CurrentCompletedOrders {  get { return _currentCompletedOrders; } }
+
+        public int RemainingOrders { get { return OrdersToCompleteGame - CurrentCompletedOrders; } }
+
         [SerializeField]
         private int _ordersToCompleteGame = 3;
 
@@ -44,9 +49,6 @@ namespace ClearCursesProto.Game
             {
                 return;
             }
-
-            OnOrderCompleted?.Invoke();
-
             _currentCompletedOrders++;
 
             if (_currentCompletedOrders >= _ordersToCompleteGame)
@@ -55,6 +57,8 @@ namespace ClearCursesProto.Game
                 _currentCompletedOrders = 0;
                 return;
             }
+            
+            OnOrderCompleted?.Invoke();
 
             CreateOrder();
         }

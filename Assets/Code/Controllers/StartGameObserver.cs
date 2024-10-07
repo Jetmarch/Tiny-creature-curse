@@ -21,7 +21,7 @@ namespace ClearCursesProto.Controllers
         private GameUIView _gameUIView;
 
         [SerializeField]
-        private Button _finishGameBtn;
+        private FinishGameUIView _finishGameView;
 
         [SerializeField]
         private AfterEndComicsView _afterEndComicsView;
@@ -42,7 +42,7 @@ namespace ClearCursesProto.Controllers
             _endComicsView.HideAllPages();
             _endComicsView.Hide();
             _gameUIView.Hide();
-            _finishGameBtn.gameObject.SetActive(false);
+            _finishGameView.Hide();
             _afterEndComicsView.HideImmediate();
         }
     }

@@ -25,7 +25,7 @@ namespace ClearCursesProto.Game
                 _rotation.y = -(_mouseOffset.x /*+ _mouseOffset.y*/) * _sensitivity;
                 _rotation.x = _mouseOffset.y * _sensitivity;
 
-                transform.Rotate(_rotation);
+                transform.Rotate(_rotation, Space.World);
 
                 _mouseReference = Input.mousePosition;
             }

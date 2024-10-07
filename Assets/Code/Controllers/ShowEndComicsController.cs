@@ -7,25 +7,25 @@ namespace ClearCursesProto.Controllers
     public class ShowEndComicsController : MonoBehaviour
     {
         [SerializeField]
-        private Button _finishGameBtn;
+        private FinishGameUIView _finishGameView;
 
         [SerializeField]
         private ComicsView _endComicsView;
 
         private void OnEnable()
         {
-            _finishGameBtn.onClick.AddListener(OnFinishGame);
+            _finishGameView.OnFinishGameBtnClick += OnFinishGame;
         }
 
         private void OnDisable()
         {
-            _finishGameBtn.onClick.RemoveListener(OnFinishGame);
+            _finishGameView.OnFinishGameBtnClick -= OnFinishGame;
         }
 
         private void OnFinishGame()
         {
+            _finishGameView.Hide();
             _endComicsView.Show();
-            _finishGameBtn.gameObject.SetActive(false);
         }
     }
 }

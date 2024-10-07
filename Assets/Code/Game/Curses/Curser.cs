@@ -6,6 +6,8 @@ namespace ClearCursesProto.Game
 {
     public class Curser : MonoBehaviour
     {
+        private List<LilFrogCurse> _previousCurses = new();
+
         public void AffectCreatureWithRandomCurses(Creature creature)
         {
             var randomCurses = GetRandomCurses(creature.MinCountOfCurses, creature.MaxCountOfCurses);
@@ -36,7 +38,7 @@ namespace ClearCursesProto.Game
             {
                 var newCurse = (LilFrogCurse)possibleCurses.GetValue(UnityEngine.Random.Range(0, possibleCurses.Length));
 
-                while (curses.Contains(newCurse))
+                while (curses.Contains(newCurse) || _previousCurses.Contains(newCurse))
                 {
                     newCurse = (LilFrogCurse)possibleCurses.GetValue(UnityEngine.Random.Range(0, possibleCurses.Length));
                 }
@@ -44,7 +46,7 @@ namespace ClearCursesProto.Game
                 curses.Add(newCurse);
             }
 
-
+            _previousCurses = curses;
             return curses;
         }
     }

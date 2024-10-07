@@ -1,4 +1,5 @@
 using RotaryHeart.Lib.SerializableDictionary;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace ClearCursesProto.Game
@@ -8,23 +9,13 @@ namespace ClearCursesProto.Game
         [SerializeField]
         private SerializableDictionaryBase<string, AudioClip> _audioClipMap;
 
-        [SerializeField]
-        private AudioSource _audioSource;
 
         public void PlaySound(string soundName)
         {
             if(_audioClipMap.TryGetValue(soundName, out AudioClip audioClip))
             {
-                _audioSource.clip = audioClip;
-                _audioSource.Play();
+                AudioSource.PlayClipAtPoint(audioClip, Vector3.one);
             }
         }
-
-#if UNITY_EDITOR
-        private void OnValidate()
-        {
-            _audioSource = GetComponent<AudioSource>();
-        }
-#endif
     }
 }
