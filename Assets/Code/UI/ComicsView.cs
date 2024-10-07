@@ -15,7 +15,10 @@ namespace ClearCursesProto.UI
         private List<Image> _comicsPages;
 
         [SerializeField]
-        private CanvasGroup _view;
+        private CanvasGroup _canvasGroup;
+
+        [SerializeField]
+        private GameObject _view;
 
         [SerializeField]
         private float _showPageSpeed = 0.5f;
@@ -30,9 +33,10 @@ namespace ClearCursesProto.UI
         [ContextMenu("Show")]
         public void Show()
         {
-            _view.DOFade(1f, _toggleViewSpeed);
-            _view.interactable = true;
-            _view.blocksRaycasts = true;
+            _view.SetActive(true);
+            _canvasGroup.DOFade(1f, _toggleViewSpeed);
+            _canvasGroup.interactable = true;
+            _canvasGroup.blocksRaycasts = true;
             HideAllPages();
             _currentPage = 0;
             _isShowComics = true;
@@ -59,14 +63,15 @@ namespace ClearCursesProto.UI
 
         public void Hide()
         {
-            _view.DOFade(0f, _toggleViewSpeed);
+            _canvasGroup.DOFade(0f, _toggleViewSpeed);
             _isShowComics = false;
-            _view.interactable = false;
-            _view.blocksRaycasts = false;
+            _canvasGroup.interactable = false;
+            _canvasGroup.blocksRaycasts = false;
+            _view.SetActive(false);
         }
 
         [ContextMenu("Hide all pages")]
-        private void HideAllPages()
+        public void HideAllPages()
         {
             foreach(var page in _comicsPages)
             {

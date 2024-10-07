@@ -42,11 +42,12 @@ namespace ClearCursesProto.Controllers
         private void OnStartGame()
         {
             _startComicsView.Show();
+            _endComicsView.HideAllPages();
             _endComicsView.Hide();
             _curseOrderView.Hide();
             _potionsPanelView.Hide();
             _finishGameBtn.gameObject.SetActive(false);
-            _afterEndComicsView.Hide();
+            _afterEndComicsView.HideImmediate();
         }
     }
 }

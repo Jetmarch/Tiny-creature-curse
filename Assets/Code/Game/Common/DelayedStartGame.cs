@@ -7,15 +7,17 @@ namespace ClearCursesProto.Game
     /// <summary>
     /// There is a bug with loading scene and event system interaction
     /// </summary>
-    public class DelayedEventSystemActivator : MonoBehaviour
+    public class DelayedStartGame : MonoBehaviour
     {
         [SerializeField]
-        private EventSystem _eventSystem;
+        private float _delay = 0.1f;
+
+        [SerializeField]
+        private GameManager _gameManager;
         private IEnumerator Start()
         {
-            _eventSystem.enabled = false;
-            yield return new WaitForSeconds(0.5f);
-            _eventSystem.enabled = true;
+            yield return new WaitForSeconds(_delay);
+            _gameManager.StartGame();
         }
     }
 }

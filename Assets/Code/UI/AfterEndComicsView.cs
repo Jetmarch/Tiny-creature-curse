@@ -40,6 +40,11 @@ namespace ClearCursesProto.UI
             _view.DOFade(0f, _toggleViewSpeed);
         }
 
+        public void HideImmediate()
+        {
+            _view.DOFade(0f, 0f);
+        }
+
         private void RestartGame()
         {
             OnRestartGame?.Invoke();
