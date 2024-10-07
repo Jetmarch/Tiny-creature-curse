@@ -18,10 +18,7 @@ namespace ClearCursesProto.Controllers
         private ComicsView _endComicsView;
 
         [SerializeField]
-        private CurseOrderView _curseOrderView;
-
-        [SerializeField]
-        private PotionsPanelView _potionsPanelView;
+        private GameUIView _gameUIView;
 
         [SerializeField]
         private Button _finishGameBtn;
@@ -44,8 +41,7 @@ namespace ClearCursesProto.Controllers
             _startComicsView.Show();
             _endComicsView.HideAllPages();
             _endComicsView.Hide();
-            _curseOrderView.Hide();
-            _potionsPanelView.Hide();
+            _gameUIView.Hide();
             _finishGameBtn.gameObject.SetActive(false);
             _afterEndComicsView.HideImmediate();
         }

@@ -13,7 +13,7 @@ namespace ClearCursesProto.Controllers
         private CurseOrderTracker _curseOrderTracker;
 
         [SerializeField]
-        private PotionsPanelView _potionsPanelView;
+        private GameUIView _gameUIView;
 
         private void OnEnable()
         {
@@ -27,7 +27,7 @@ namespace ClearCursesProto.Controllers
 
         private void OnComicsEnd()
         {
-            _potionsPanelView.Show();
+            _gameUIView.Show();
             _curseOrderTracker.StartOrders();
         }
     }
