@@ -18,8 +18,6 @@ namespace ClearCursesProto.Controllers
         [SerializeField]
         private CurseOrderTracker _curseOrderTracker;
 
-        [SerializeField]
-        private MouseClickOnObject _frogClicker;
 
         [Header("Sound keys")]
         [SerializeField]
@@ -42,7 +40,6 @@ namespace ClearCursesProto.Controllers
             _buttonsManager.OnPoinerEnterPotion += OnPointerEnterPotion;
             _potionApplier.OnPotionApplied += OnPotionApplied;
             _curseOrderTracker.OnOrderCompleted += OnCurseOrderCompleted;
-            _frogClicker.OnClick += OnLilFrogClick;
             _curseOrderTracker.OnCompleteGame += OnCompleteGame;
         }
 
@@ -51,7 +48,6 @@ namespace ClearCursesProto.Controllers
             _buttonsManager.OnPoinerEnterPotion -= OnPointerEnterPotion;
             _potionApplier.OnPotionApplied -= OnPotionApplied;
             _curseOrderTracker.OnOrderCompleted -= OnCurseOrderCompleted;
-            _frogClicker.OnClick -= OnLilFrogClick;
         }
 
         private void OnPointerEnterPotion()
@@ -67,11 +63,6 @@ namespace ClearCursesProto.Controllers
         private void OnCurseOrderCompleted()
         {
             _audioManager.PlaySound(_curseOrderCompleted);
-        }
-
-        private void OnLilFrogClick()
-        {
-            //_audioManager.PlaySound(_frogCroak);
         }
 
         private void OnCompleteGame()

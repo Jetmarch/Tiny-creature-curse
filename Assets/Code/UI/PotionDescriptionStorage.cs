@@ -1,7 +1,5 @@
 using ClearCursesProto.Game;
 using RotaryHeart.Lib.SerializableDictionary;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace ClearCursesProto.UI
@@ -16,7 +14,7 @@ namespace ClearCursesProto.UI
 
         public string GetDescription(PotionType potionType)
         {
-            if(_potionDescription.TryGetValue(potionType, out var description))
+            if (_potionDescription.TryGetValue(potionType, out var description))
             {
                 return description;
             }

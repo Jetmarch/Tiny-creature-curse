@@ -37,7 +37,7 @@ namespace ClearCursesProto.UI
 
         private void Start()
         {
-            foreach(var button in _potionButtons)
+            foreach (var button in _potionButtons)
             {
                 button.OnPotionSelected += PotionButtonClicked;
                 button.OnPointerEnterPotion += PointerEnterPotion;
@@ -69,7 +69,7 @@ namespace ClearCursesProto.UI
         private void OnValidate()
         {
             _potionButtons.Clear();
-            foreach(var potionButton in FindObjectsOfType<PotionButtonView>())
+            foreach (var potionButton in FindObjectsOfType<PotionButtonView>())
             {
                 _potionButtons.Add(potionButton);
             }

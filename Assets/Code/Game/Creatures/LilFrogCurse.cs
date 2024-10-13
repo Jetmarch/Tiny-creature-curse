@@ -1,5 +1,3 @@
-using System;
-
 namespace ClearCursesProto.Game
 {
     public enum LilFrogCurse : byte

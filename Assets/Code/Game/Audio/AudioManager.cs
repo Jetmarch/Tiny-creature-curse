@@ -1,5 +1,4 @@
 using RotaryHeart.Lib.SerializableDictionary;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace ClearCursesProto.Game
@@ -12,7 +11,7 @@ namespace ClearCursesProto.Game
 
         public void PlaySound(string soundName)
         {
-            if(_audioClipMap.TryGetValue(soundName, out AudioClip audioClip))
+            if (_audioClipMap.TryGetValue(soundName, out AudioClip audioClip))
             {
                 AudioSource.PlayClipAtPoint(audioClip, Vector3.one);
             }

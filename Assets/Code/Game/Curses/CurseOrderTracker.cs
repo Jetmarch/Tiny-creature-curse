@@ -10,7 +10,7 @@ namespace ClearCursesProto.Game
         public event Action<CurseOrder> OnOrderCreated;
 
         public int OrdersToCompleteGame { get { return _ordersToCompleteGame; } }
-        public int CurrentCompletedOrders {  get { return _currentCompletedOrders; } }
+        public int CurrentCompletedOrders { get { return _currentCompletedOrders; } }
 
         public int RemainingOrders { get { return OrdersToCompleteGame - CurrentCompletedOrders; } }
 
@@ -57,7 +57,7 @@ namespace ClearCursesProto.Game
                 _currentCompletedOrders = 0;
                 return;
             }
-            
+
             OnOrderCompleted?.Invoke();
 
             CreateOrder();

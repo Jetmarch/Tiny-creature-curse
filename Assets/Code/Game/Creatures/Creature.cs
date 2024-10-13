@@ -23,18 +23,18 @@ namespace ClearCursesProto.Game
 
         public void AddCurse(LilFrogCurse curse)
         {
-            if(_activeCurses.Contains(curse))
+            if (_activeCurses.Contains(curse))
             {
                 return;
             }
 
             _activeCurses.Add(curse);
-            
+
         }
 
         public void RemoveCurse(LilFrogCurse curse)
         {
-            if(!_activeCurses.Contains(curse))
+            if (!_activeCurses.Contains(curse))
             {
                 return;
             }
@@ -48,7 +48,7 @@ namespace ClearCursesProto.Game
         {
             foreach (var curseAttr in _curseAttribute.Values)
             {
-                if(curseAttr == null)
+                if (curseAttr == null)
                 {
                     continue;
                 }
@@ -56,7 +56,7 @@ namespace ClearCursesProto.Game
                 curseAttr.SetActive(false);
             }
 
-            foreach(var curse in _activeCurses)
+            foreach (var curse in _activeCurses)
             {
                 var go = _curseAttribute[curse];
                 if (go == null)

@@ -38,7 +38,7 @@ namespace ClearCursesProto.UI
 
             //Hide view, apply curses, then show view
             _view.DOAnchorPos(_hidePosition, _changePositionDuration).OnComplete(() =>
-                { 
+                {
                     ApplyCurses(curses);
                     _view.DOAnchorPos(_showPosition, _changePositionDuration);
                 });

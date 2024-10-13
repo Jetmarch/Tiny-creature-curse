@@ -48,7 +48,7 @@ namespace ClearCursesProto.UI
         {
             if (!_isShowComics) return;
 
-            if(_currentPage >= _comicsPages.Count)
+            if (_currentPage >= _comicsPages.Count)
             {
                 Hide();
                 OnComicsEnd?.Invoke();
@@ -73,7 +73,7 @@ namespace ClearCursesProto.UI
         [ContextMenu("Hide all pages")]
         public void HideAllPages()
         {
-            foreach(var page in _comicsPages)
+            foreach (var page in _comicsPages)
             {
                 page.color = new Color(1f, 1f, 1f, 0f);
             }

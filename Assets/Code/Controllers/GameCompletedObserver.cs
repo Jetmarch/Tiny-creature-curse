@@ -1,7 +1,6 @@
 using ClearCursesProto.Game;
 using ClearCursesProto.UI;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace ClearCursesProto.Controllers
 {
@@ -22,6 +21,9 @@ namespace ClearCursesProto.Controllers
         [SerializeField]
         private FinishGameUIView _finishGameView;
 
+        [SerializeField]
+        private RotateObjectAnimation _rotateFrogAnimation;
+
         private void OnEnable()
         {
             _orderTracker.OnCompleteGame += OnCompleteGame;
@@ -34,6 +36,7 @@ namespace ClearCursesProto.Controllers
 
         private void OnCompleteGame()
         {
+            _rotateFrogAnimation.ShowAnimation();
             _curser.CleanCreature(_creature);
             _gameUIView.Hide();
 

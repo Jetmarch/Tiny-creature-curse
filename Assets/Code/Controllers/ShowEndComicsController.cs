@@ -1,6 +1,5 @@
 using ClearCursesProto.UI;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace ClearCursesProto.Controllers
 {

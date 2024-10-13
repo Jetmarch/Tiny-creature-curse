@@ -9,23 +9,23 @@ namespace ClearCursesProto.Game
             var activeCurses = creature.ActiveCurses;
             var mustHaveCurses = currentCurseOrder.MustHaveCurses;
 
-            if(activeCurses.Count != mustHaveCurses.Count)
+            if (activeCurses.Count != mustHaveCurses.Count)
             {
                 return false;
             }
 
-            foreach(var activeCurse in activeCurses)
+            foreach (var activeCurse in activeCurses)
             {
                 bool isCurseFinded = false;
-                foreach(var mustHaveCurse in mustHaveCurses)
+                foreach (var mustHaveCurse in mustHaveCurses)
                 {
-                    if(mustHaveCurse == activeCurse)
+                    if (mustHaveCurse == activeCurse)
                     {
                         isCurseFinded = true;
                     }
                 }
 
-                if(!isCurseFinded) 
+                if (!isCurseFinded)
                 {
                     return false;
                 }
