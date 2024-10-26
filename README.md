@@ -4,3 +4,7 @@
 Tiny game about tiny creature
 
 Use potions in the right order and break curses to help the witch get her beloved familiars back in the right shape!
+
+# Ratings
+
+![Ratings](https://badges.jaxs.onl/56/cursed-lil-frog/badge.svg)
